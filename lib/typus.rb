@@ -19,6 +19,11 @@ module Typus
   autoload :I18n, "typus/i18n"
   autoload :Resources, "typus/resources"
 
+  def is_mongoid?(klass)
+    (defined?(Mongoid) && klass < Mongoid::Document)
+  end
+  private :is_mongoid?
+
   module Controller
     autoload :Actions, "typus/controller/actions"
     autoload :ActsAsList, "typus/controller/acts_as_list"
